@@ -9,18 +9,12 @@ version = '0.0.1-SNAPSHOT'
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(25)
+		languageVersion = JavaLanguageVersion.of(17)
 	}
 }
 
 repositories {
 	mavenCentral()
-}
-
-configurations.configureEach {
-	resolutionStrategy.capabilitiesResolution.withCapability('org.lz4:lz4-java') {
-		select('at.yawk.lz4:lz4-java:1.10.1')
-	}
 }
 
 dependencies {
@@ -31,7 +25,6 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	implementation 'org.apache.rocketmq:rocketmq-spring-boot-starter:2.3.6'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
